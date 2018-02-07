@@ -1,0 +1,35 @@
+body {
+    background-color: #000000;
+    color: white;
+    font-family: 'Krona One', sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    align-content: center;
+    margin: 100px;
+}
+
+h1 {
+    font-family: 'Fascinate Inline', cursive;
+    color: white;
+    text-align: center;
+    font-size: 72px;
+    padding: 30px;
+}
+
+#movie-curtain {
+    /* align-self: center; */
+    width:100%;
+}
+
+
+/* 
+font-family: 'Bungee Inline',
+cursive;
+font-family: 'Fascinate',
+cursive;
+font-family: 'Fascinate Inline',
+cursive;
+font-family: 'Krona One',
+sans-serif; */
