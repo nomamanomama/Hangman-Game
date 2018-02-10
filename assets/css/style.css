@@ -3,11 +3,22 @@ body {
     color: white;
     font-family: 'Krona One', sans-serif;
     font-size: 16px;
+    align-content: center;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.row {
+    margin: 15px;
 }
 
 .container {
+    height: 700px;
+    background-image: url("../../assets/images/curtain.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
     align-content: center;
-    margin: 100px;
+    margin: 30px 100px;
 }
 
 h1 {
@@ -19,8 +30,84 @@ h1 {
 }
 
 #movie-curtain {
-    /* align-self: center; */
-    width:100%;
+    width: 100%;
+}
+
+p {
+    align-content: center;
+    word-spacing: 2rem;
+}
+
+h2 {
+    font-family: 'Fascinate', cursive;
+    font-size: 36px;
+}
+
+h3,
+h4 {
+    font-family: 'Fascinate', cursive;
+    font-size: 24px;
+}
+
+.gameMessage {
+    height: 75px;
+    font-size: 24px;
+    position: absolute;
+}
+
+.statisticsBox {
+    margin: 0px;
+    position: relative;
+    top: 100px;
+}
+
+.movieFrame {
+    align-content: center;
+    position: absolute;
+    top:120px;
+}
+
+.gameBoard {
+    align-content: center;
+    position: relative;
+    top: 400px;
+    height: 180px;
+    padding-bottom: 15px;
+}
+
+.statusBar {
+    align-content: space-between;
+    margin: 10px;
+    position: relative;
+    top: 400px;
+}
+
+.numGuessesBox,
+.guessesBox,
+.difficultyBox {
+    margin: 10px;
+    text-align: center;
+}
+
+#guessedLetters {
+    margin: 10px;
+    position: relative;
+    word-spacing: 2rem;
+    font-stretch: ultra-expanded;
+}
+
+#currentWord {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 36px;
+    text-align: center;
+    word-spacing: 0rem;
+    padding: 20px;
+    font-kerning: .25rem;
+    line-height: 2rem;
+    font-weight: 700;
+    text-shadow: #1a1919 5px;
+    background-color: #03030391
+    /* z-index: 1; */
 }
 
 

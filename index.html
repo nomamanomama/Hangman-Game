@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <!-- link fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Fascinate|Fascinate+Inline|Krona+One+Mono|Roboto" rel="stylesheet">
+    
+    <!-- link css files -->
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Fascinate|Fascinate+Inline|Krona+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    
     <title>Hangman Game</title>
 </head>
 <body>
@@ -15,22 +22,40 @@
     </header>
 
     <div class="container">
-        <!-- create the movie background -->
-         <img id="movie-curtain" src="./assets/images/curtain.jpg" alt="curtain pic">
-        <!-- show the blanks representing letters -->
-         <div id="gameboard">
-                
+         <div id="gameMessage">
+             <p></p>          
          </div>
-        <!-- Press any key to get started! -->
-        <!-- show the number of letter guesses remaining  -->
-        <!-- show the guessed letters -->
-         <!-- Wins: (# of times user guessed the word correctly). -->
-        
-         <!-- After the user wins/loses the game should automatically choose another word and
-        make the user play it. 
-         -->
-        <!-- ##### Hangman Game Bonuses 1. Play a sound or song when the user guesses their word correctly, like
-        in our demo. 2. Write some stylish CSS rules to make a design that fits your game's theme. --> -->
+        <div class="row statisticsBox justify-content-center">
+            <h4>Wins: &nbsp; </h4>
+            <p id="numWins">0</p>
+        </div>
+        <div class = "row movieFrame">
+            <video id="playMovie"></video>
+            <audio id="playAudio"></audio>
+        </div>
+        <div class="row gameBoard">
+            <div class="col-sm-12 justify-content-center">
+                <h2>Current Word</h2>
+            </div>
+            <div class="col-sm-12 justify-content-center flex-nowrap">
+                <p id="currentWord"></p>
+            </div>
+         </div>   
+         <div class="row statusBar justify-content-between align-self-baseline">
+            <div class="numGuessesBox">
+                <h3>Guesses Remaining</h3>
+                <span id="numGuessesLeft"></span>
+            </div>
+            <div class="guessesBox">
+                <h3>Guessed Letters</h3>
+                <span id="guessedLetters"></span>
+            </div>
+            <div class="difficultyBox">
+                <h3>Difficulty Level</h3>
+                <span id="diffLevel"></span>
+            </div>
+         </div>
+         
     </div>
 
     <footer>
@@ -39,7 +64,7 @@
 
 
 
-    <!-- Javascriptgoes below here     -->
+    <!-- Javascriptgoes below here -->
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </body>
 </html>
