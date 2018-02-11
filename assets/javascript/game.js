@@ -1,78 +1,77 @@
-//Display press any key to get started
-//Show the number of letter guesses remaining
-//Show the guessed letters
+//////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      HANGMAN AT THE MOVIES
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-//Show Wins: (# of times user guessed the word correctly).
 
-//After the user wins / loses the game should automatically choose another word and make the user play it. 
 
-//##### Hangman Game Bonuses 
-// //1. Play a sound or song when the user guesses their word correctl
-// 2. Write some stylish CSS rules to make a design that fits your game's theme.
-// 3. ** HARD MODE:** Organize your game code as an object, except for the key events to get the letter guessed.
-//      This will be a challenge if you haven't coded with JavaScript before, but we encourage anyone already familiar with the language to try this out.
-// 4. Save your whole game and its properties in an object.
-// 5. Save any of your game's functions as methods, and call them underneath your object declaration using event listeners.
-// 6. Don't forget to place your global variables and functions above your object.
-//     * Remember: global variables, then objects, then calls.
-// 7. Definitely talk with a TA or your instructor if you get tripped up during this challenge.
-
+//////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      ARRAY OF PUZZLE WORDS AND ASSETS
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
 //Create list of movie objects for guessing with properties: name, music, video
 var movieList = [
-    ["CAST AWAY", 
-        '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' , 
-        '<iframe width="560" height="315" src="https://www.youtube.com/embed/FiiCxvGnkA8?rel=0&amp;controls=0&amp;showinfo=0&amp;start=120" frameborder="0" allow="autoplay; encrypted-media"></iframe>' ],
+    ["CAST AWAY",
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/FiiCxvGnkA8?rel=0&amp;controls=0&amp;showinfo=0&amp;start=120" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["FORREST GUMP",
-        '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-        '<iframe width="560" height="315" src="https://www.youtube.com/embed/bLvqoHBptjg?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'],
-    ["BIG", 
-        '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">',
-        '<iframe width="560" height="315" src="https://www.youtube.com/embed/9pX1hxYW3YY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/bLvqoHBptjg?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
+    ["BIG",
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/9pX1hxYW3YY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["SULLY",
-        '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">',
-        '<iframe width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["CATCH ME IF YOU CAN",
-        '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">',
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["SAVING PRIVATE RYAN",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["GREEN MILE",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["CAPTAIN PHILLIPS",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["TOY STORY",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
-    ["SAVING MR BANKS", 
-    '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
+    ["SAVING MR BANKS",
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["BRIDGE OF SPIES",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["PHILADELPHIA",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["THAT THING YOU DO",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["JOE VERSUS THE VOLCANO",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["THE BONFIRE OF THE VANITIES",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["A LEAGUE OF THEIR OWN",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ],
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>'],
     ["SLEEPLESS IN SEATTLE",
-     '<source src="./assets/audio/old_movie_projector.wav" type="audio/wav">' ,
-    ]
+        '<source src="./assets/audio/movie_projector.wav" type="audio/wav">',
+        '<iframe id="movie" width="560" height="315" src="https://www.youtube.com/embed/Yo2PbaiN1tU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>']
 ];
 
-//initialize values
+//////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      GLOBAL VARIABLES
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
+
 var winCount = 0,
     gameOver = false,
     isPlaying = false,
@@ -88,12 +87,17 @@ var winCount = 0,
 //prompt user to press any key to begin. esc to exit
 document.getElementById("gameMessage").textContent = startMessage;
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      ONKEYUP - MAIN EVENT FUNCTION
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
 // this function is run whenever the user presses a key - listen for key press to begin game
 document.onkeyup = function () {
 
     userGuess = String.fromCharCode(event.keyCode).toUpperCase();
-    console.log("Key entered: " + userGuess);
-    console.log("CurrentWordState: " + currentWordState + " isPlaying: " + isPlaying);
+    //console.log("Key entered: " + userGuess);
+    //console.log("CurrentWordState: " + currentWordState + " isPlaying: " + isPlaying);
 
     //listen for special character "esc" to end the game
     if (event.keyCode !== 27) {
@@ -102,33 +106,51 @@ document.onkeyup = function () {
             //create a new game
             startNewGame();
         }
-        else {
+        else if (userGuess  >= "A" && userGuess<= "z") {
             //process the guessed letter and update gameboard
             processGuessedLetter(game, userGuess);
         }
        
+        audioObj = document.getElementById("playAudio");
+        pictureObj = document.getElementById("playMovie");
         if (gameOver) {
             isPlaying = false;
-            var audioHTML,videoHTML;
+            var audioHTML,videoHTML,audioObj;
+            
+            //play song and pic
             if (userWon) {
-                console.log("playing reward");
+                //console.log("playing reward");
                 audioHTML = game.movieSound;
-                videoHTML = game.movieClip;
-                document.getElementById("playAudio").innerHTML = audioHTML; 
-                document.getElementById("playMovie").innerHTML= videoHTML; 
+                audioObj.innerHTML = audioHTML; 
+                audioObj.play();
+                pictureObj.innerHTML = '<img src="./assets/images/oscar.jpg" alt="winner pic" height="150px">';
             }
-            //play song and video
+            
             else {
                 audioHTML = '<source src="./assets/audio/Tree_Fall_Small.wav" type="audio/wav">';
-                document.getElementById("playAudio").innerHTML = audioHTML; 
+
+                audioObj.innerHTML = audioHTML; 
+                audioObj.play();
+                pictureObj.innerHTML = '<img src="./assets/images/hangman.jpg" alt="loser pic" height="150px">';
             } 
-            //startNewGame();
+            pictureObj.style.display = "inline";
+            setTimeout(function () {    
+                //audioObj.pause(); 
+                pictureObj.style.display = "none";
+                startNewGame();}, 5000);
+            
         }
     }
     else {
         document.getElementById("gameMessage").textContent = "Thanks for playing!";
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      INITIALIZE A NEW ROUND OF THE GAME
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 function startNewGame() {
     //create a new game and init settings
@@ -147,6 +169,12 @@ function startNewGame() {
     displayCurrentWord();
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      GAME OBJECT
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
+
 //create a game object and call it to begin a new round
 function Game() {
     this.movieIndex = Math.floor(Math.random() * movieList.length);
@@ -162,7 +190,7 @@ function Game() {
     this.adjustDifficulty = adjustDifficulty;
 
 
-    console.log(this.movieName);
+    //console.log(this.movieName);
 
     //initialize global values for new game and set current game word with as blanks
     function initGame () {
@@ -174,7 +202,7 @@ function Game() {
             this.winningWord += " ";
         }
         this.winningWord
-        console.log("initializing game");
+        //console.log("initializing game");
     }
 
     function adjustDifficulty () {
@@ -193,10 +221,16 @@ function Game() {
     }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//
+//     GAME WORD FUNCTIONS
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
+
 //create a gameboard for the current movieName
 function initCurrentWordState(movieName) {
     currentWordState = [];
-    console.log("init currentWordState" + currentWordState + "for moviename " + movieName);
+    //console.log("init currentWordState" + currentWordState + "for moviename " + movieName);
     for (var i = 0; i < movieName.length; i++) {
         // Runs 5 times, with values of step 0 through 4.
         if (movieName[i] != " ") {
@@ -207,7 +241,7 @@ function initCurrentWordState(movieName) {
         }
     }
     displayCurrentWord();
-    console.log("init currentWordState" + currentWordState);
+    //console.log("init currentWordState" + currentWordState);
 }
 
 //utility function to determine if guessed letter is in the array  
@@ -218,7 +252,7 @@ function findLetter(array, letter) {
         var index = array.indexOf(letter);
         if (index != -1) {
             found = true;
-            console.log("found it at index: " + index);
+            //console.log("found it at index: " + index);
         }
     }
     return found;
@@ -229,7 +263,7 @@ function processGuessedLetter(gameSession, letter) {
     //if letter was found
     var word = gameSession.movieName;
     if (findLetter(word, letter)) {
-        console.log("found it");
+        //console.log("found it");
         updateCurrentWord(letter);
 
         //if all of the blanks have been turned - they won!
@@ -248,7 +282,7 @@ function processGuessedLetter(gameSession, letter) {
     }
     //letter was not found
     else {
-        console.log("numguesses= " + gameSession.numGuessesLeft + " NOT FOUND");
+        //console.log("numguesses= " + gameSession.numGuessesLeft + " NOT FOUND");
         //check to see if they've already guessed this letter
         if (!findLetter(gameSession.guessedLetters, letter)) {
             //decrease remaining guesses and add to list of guessed letters
@@ -263,7 +297,7 @@ function processGuessedLetter(gameSession, letter) {
 
     function processWrongGuess() {
         gameSession.numGuessesLeft--;
-        console.log("now numguesses= " + gameSession.numGuessesLeft);
+        //console.log("now numguesses= " + gameSession.numGuessesLeft);
         //update the screen with the number of Guesses left
         document.getElementById("numGuessesLeft").textContent = gameSession.numGuessesLeft;
         if (gameSession.numGuessesLeft > 0) {
@@ -290,16 +324,16 @@ function processGuessedLetter(gameSession, letter) {
 //update the current word state in the background and update the browser to reveal the guessed letter 
 function updateCurrentWord(letter) {
 
-    console.log("update: " + currentWordState + " with " + letter);
+    //console.log("update: " + currentWordState + " with " + letter);
     for (var i = 0; i < game.movieName.length; i++) {
         if (game.movieName.indexOf(letter, i) === i) {
-            console.log("Found letter at index " + i + ". Updating current word.");
+            //console.log("Found letter at index " + i + ". Updating current word.");
             currentWordState[i] = [letter];
-            console.log("updated index letter: " + currentWordState[i]);
+            //console.log("updated index letter: " + currentWordState[i]);
         }
     }
 
-    console.log("updated current word: " + currentWordState);
+    //console.log("updated current word: " + currentWordState);
     displayCurrentWord();
 }
 
